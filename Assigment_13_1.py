@@ -14,7 +14,7 @@ ctx.verify_mode = ssl.CERT_NONE
 
 # Retriving URL:
 xml = urllib.request.urlopen(url, context=ctx)
-data = xml.read()
+data = xml.read().decode() #"bytes" data is decoded to "string"
 
 # Creating an XML tree
 tree = ET.fromstring(data) 
