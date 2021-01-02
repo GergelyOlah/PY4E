@@ -77,5 +77,9 @@ sqlstr = '''SELECT hex(User.name || Course.title || Member.role ) AS X FROM
     ON Member.user_id = User.id AND Member.course_id = Course.id
     ORDER BY X'''
 
-for row in cur.execute(sqlstr):
-    print(str(row))
+cur.execute(sqlstr)
+result = cur.fetchone()
+print(result)
+
+cur.close()
+conn.close()
