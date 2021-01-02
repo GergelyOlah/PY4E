@@ -43,8 +43,9 @@ for entry in json_data:
 
     name = entry[0]
     title = entry[1]
+    role = entry[2]
 
-    print((name, title))
+    #print((name, title, role))
 
     cur.execute('''INSERT OR IGNORE INTO User (name)
         VALUES ( ? )''', ( name, ) )
@@ -57,7 +58,24 @@ for entry in json_data:
     course_id = cur.fetchone()[0]
 
     cur.execute('''INSERT OR REPLACE INTO Member
-        (user_id, course_id) VALUES ( ?, ? )''',
-        ( user_id, course_id ) )
+        (user_id, course_id, role) VALUES ( ?, ?, ? )''',
+        ( user_id, course_id, role ) )
 
 conn.commit()
+
+""" sqlstr = '''SELECT User.name, Course.title, Member.role FROM 
+  User JOIN Member JOIN Course
+  ON Member.user_id = User.id AND Member.course_id = Course.id
+  ORDER BY Course.title, Member.role DESC, User.name 
+  LIMIT 3''' """
+
+""" for row in cur.execute(sqlstr):
+    print(str(row[0]), str(row[1]), str(row[2])) """
+
+sqlstr = '''SELECT hex(User.name || Course.title || Member.role ) AS X FROM 
+    User JOIN Member JOIN Course
+    ON Member.user_id = User.id AND Member.course_id = Course.id
+    ORDER BY X'''
+
+for row in cur.execute(sqlstr):
+    print(str(row))
