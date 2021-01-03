@@ -1,2 +1,4 @@
 *.mp4
-bs4
+bs4/
+code3/code3/__pycache__/
+
