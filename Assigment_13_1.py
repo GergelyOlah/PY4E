@@ -5,7 +5,7 @@ import ssl
 # Getting inputs:
 url = input("Enter URL: ")
 if url == "":
-    url = "http://py4e-data.dr-chuck.net/comments_42.xml"
+    url = "http://py4e-data.dr-chuck.net/comments_1131336.xml"
 
 # Ignore SSL certificate errors
 ctx = ssl.create_default_context()

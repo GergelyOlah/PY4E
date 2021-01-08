@@ -14,7 +14,7 @@ ctx.verify_mode = ssl.CERT_NONE
 # Getting inputs:
 url = input("Enter URL: ")
 if url == "":
-    url = "http://py4e-data.dr-chuck.net/known_by_Fikret.html"
+    url = "http://py4e-data.dr-chuck.net/known_by_Meghana.html"
 
 count = int(input("Enter count: "))
 position = int(input("Enter position: "))

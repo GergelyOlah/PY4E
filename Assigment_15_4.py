@@ -30,7 +30,7 @@ CREATE TABLE Member (
 
 fname = input('Enter file name: ')
 if len(fname) < 1:
-    fname = 'roster_data_sample.json'
+    fname = 'roster_data.json'
 
 # [
 #   [ "Charley", "si110", 1 ],
@@ -63,19 +63,15 @@ for entry in json_data:
 
 conn.commit()
 
-""" sqlstr = '''SELECT User.name, Course.title, Member.role FROM 
-  User JOIN Member JOIN Course
-  ON Member.user_id = User.id AND Member.course_id = Course.id
-  ORDER BY Course.title, Member.role DESC, User.name 
-  LIMIT 3''' """
+""" SELECT User.name,Course.title, Member.role FROM 
+    User JOIN Member JOIN Course 
+    ON User.id = Member.user_id AND Member.course_id = Course.id
+    ORDER BY User.name DESC, Course.title DESC, Member.role DESC LIMIT 2; """
 
-""" for row in cur.execute(sqlstr):
-    print(str(row[0]), str(row[1]), str(row[2])) """
-
-sqlstr = '''SELECT hex(User.name || Course.title || Member.role ) AS X FROM 
-    User JOIN Member JOIN Course
-    ON Member.user_id = User.id AND Member.course_id = Course.id
-    ORDER BY X'''
+sqlstr = '''SELECT 'XYZZY' || hex(User.name || Course.title || Member.role ) AS X FROM 
+    User JOIN Member JOIN Course 
+    ON User.id = Member.user_id AND Member.course_id = Course.id
+    ORDER BY X LIMIT 1;'''
 
 cur.execute(sqlstr)
 result = cur.fetchone()

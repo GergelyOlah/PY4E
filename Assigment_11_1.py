@@ -4,7 +4,7 @@ import re
 # Getting inputs:
 file = input("Enter filename: ")
 if file == "":
-    file = "regex_sum_42.txt"
+    file = "regex_sum_1131332.txt"
 
 with open(file) as fhand:
     count = 0
