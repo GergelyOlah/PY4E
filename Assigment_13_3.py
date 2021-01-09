@@ -42,3 +42,4 @@ print(json.dumps(json_data, indent=4))
 place_id = json_data['results'][0]['place_id']
 
 print("Place id:\n", place_id)
+print(len(json_data["results"][0]))
