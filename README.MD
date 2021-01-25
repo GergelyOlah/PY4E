@@ -1,4 +1,4 @@
-# Python for everybody course - Coursera
+# Python for Everybody Specialisation - Coursera
 
 Assigments and excercises for the **_Python for Everybody_** specialisation on _Coursera_ including the below courses:
 
